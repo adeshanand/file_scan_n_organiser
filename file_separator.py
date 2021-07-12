@@ -12,7 +12,8 @@ file_extensions = {
 def copy_file(folder_name,file_path,file):
     if not os.path.exists(folder_name):
         os.mkdir(folder_name)
-    shutil.copy(os.path.join(file_path,file),folder_name + '/' + file)
+    if not os.path.exists(folder_name + '/' + file):
+        shutil.copy(os.path.join(file_path,file),folder_name + '/' + file)
 
 scan_folder_path = input('enter directory path : ')
 os.chdir(scan_folder_path)
